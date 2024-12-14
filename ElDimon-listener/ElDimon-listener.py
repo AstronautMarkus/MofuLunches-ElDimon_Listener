@@ -107,7 +107,7 @@ class App(QtWidgets.QWidget):
         title_layout.setAlignment(QtCore.Qt.AlignCenter)  # Center the title layout
 
         icon_label = QtWidgets.QLabel()
-        icon_label.setPixmap(QtGui.QPixmap('icon.png').scaled(60, 60, QtCore.Qt.KeepAspectRatio))  # Adjust icon size
+        icon_label.setPixmap(QtGui.QPixmap('icon.png').scaled(80, 80, QtCore.Qt.KeepAspectRatio))  # Adjust icon size
         title_layout.addWidget(icon_label)
 
         title_label = QtWidgets.QLabel("ElDimon Listener")
@@ -173,6 +173,22 @@ class App(QtWidgets.QWidget):
         self.exit_button.setFixedWidth(200)  # Reduce width
         self.exit_button.clicked.connect(self.close)
         layout.addWidget(self.exit_button, alignment=QtCore.Qt.AlignCenter)
+
+        # Footer
+        footer_layout = QtWidgets.QHBoxLayout()
+        footer_layout.setAlignment(QtCore.Qt.AlignRight)  # Align footer to the right
+
+        footer_label = QtWidgets.QLabel('<a href="https://github.com/AstronautMarkus">Created by Marcos Reyes (AstronautMarkus)</a>')
+        footer_label.setStyleSheet("font-size: 12px; color: #999;")  # Less prominent style
+        footer_label.setOpenExternalLinks(True)  # Enable clickable link
+        footer_layout.addWidget(footer_label)
+
+        footer_icon = QtWidgets.QLabel()
+        footer_icon.setPixmap(QtGui.QPixmap('astronautmarkus.jpg').scaled(50, 50, QtCore.Qt.KeepAspectRatio))
+        footer_icon.setStyleSheet("border-radius: 25px;")
+        footer_layout.addWidget(footer_icon)
+
+        layout.addLayout(footer_layout)
 
         self.setLayout(layout)
         self.setStyleSheet("background-color: #fdfdfd;")
